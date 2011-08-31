@@ -141,6 +141,19 @@
     }
   };
 
+
+  /**
+   * Insert custom variables to segregate users
+   */
+  $.customVars = function(slot, name, value, scope) {
+    if(typeof pageTracker == 'undefined') {
+      debug('FATAL: pageTracker is not defined. Cherian'); // blocked by whatever
+    } else {
+      debug("Tracking custom variable " + name);
+      pageTracker._setCustomVar(slot, name, value, scope);
+    }
+  };
+
   /**
    * Tracks a pageview using the given uri.
    *
